@@ -18,6 +18,7 @@
    gem 'byebug', platform: :mri
    gem 'rspec-rails', '~> 3.6'
    gem 'rails-controller-testing'
+   gem 'capybara'
 
  end
 
