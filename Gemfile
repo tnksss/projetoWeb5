@@ -32,7 +32,8 @@
  end
 
  group :test do
-
+   gem 'simplecov', :require => false
+   gem 'guard-rspec', require: false
  end 
 
  group :production do
