@@ -10,6 +10,8 @@
  gem 'turbolinks',   '~> 5.0.1'
  gem 'bootstrap', '~> 4.0.0.beta'
  gem 'pg', '0.18.4'
+ gem 'simple_form'
+ gem 'rails-i18n', '~> 5.0.0'
 
  group :development, :test do
 

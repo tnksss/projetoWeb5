@@ -163,7 +163,6 @@ SimpleForm.setup do |config|
 
    config.label_text = lambda { |label, required, explicit_label| "#{label}" }
 
- 
 
   # Defines if the default input wrapper class should be included in radio
   # collection wrappers.
