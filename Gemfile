@@ -12,6 +12,7 @@
  gem 'pg', '0.18.4'
  gem 'simple_form'
  gem 'rails-i18n', '~> 5.0.0'
+ gem 'devise'
 
  group :development, :test do
 
