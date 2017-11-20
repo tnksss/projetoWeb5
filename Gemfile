@@ -21,6 +21,7 @@
    gem 'rspec-rails', '~> 3.6'
    gem 'rails-controller-testing'
    gem 'capybara'
+      gem 'factory_girl_rails'
 
  end
 

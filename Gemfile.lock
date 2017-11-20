@@ -78,6 +78,11 @@ GEM
     docile (1.1.5)
     erubi (1.7.0)
     execjs (2.7.0)
+    factory_girl (4.9.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.9.0)
+      factory_girl (~> 4.9.0)
+      railties (>= 3.0.0)
     ffi (1.9.18)
     formatador (0.2.5)
     globalid (0.4.1)
@@ -251,6 +256,7 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.2)
+  factory_girl_rails
   guard-rspec
   jquery-rails (~> 4.3.1)
   listen (~> 3.0.8)
