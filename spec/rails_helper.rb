@@ -15,6 +15,7 @@
  # Add additional requires below this line. Rails is not loaded until this point!
 
  require 'capybara/rspec'
+ require 'support/database_cleaner'
 
  
 
@@ -33,6 +34,7 @@
  
 
    config.include FactoryGirl::Syntax::Methods
+   config.include Warden::Test::Helpers
 
  
 
