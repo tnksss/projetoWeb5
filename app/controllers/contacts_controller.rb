@@ -4,15 +4,14 @@ class ContactsController < ApplicationController
   end
   
   def create
-    @contact = Contact.new(contact_params)
+     @contact = Contact.new(contact_params) 
 
-    if @contact.save
-      flash[:success] = 'Mensagem enviada com sucesso!'
-      redirect_to root_path
-    else
-      flash[:error] = 'Existem dados incorretos!'
-      render "home/index"
-    end
+     if @contact.save
+       flash[:success] = 'Mensagem enviada com sucesso!'
+       @contact = Contact.new
+     else
+       flash[:error] = 'Existem dados incorretos!'
+     end
   end
 
   private
