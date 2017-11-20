@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
+  devise_for :admins
+	root to: 'home#index'
+
   devise_for :users
-   root to: 'home#index'
-   resources :contacts, only: [:create, :index]
+
+  resources :contacts, only: [:create, :index]
+
+  authenticate :user do
+  	namespace :users do
+  		root to: 'dashboard#index'
+  	end
+  end
+  authenticate :admin do
+    namespace :admins do
+      root to: 'dashboard#index'
+    end
+  end
 end
