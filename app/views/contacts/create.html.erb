@@ -1,24 +1,24 @@
-  <article class="card mb-5">
-   <div class="card-body">
-     <header class="card-title">
-       <h2>Fale conosco</h2>
-     </header>
-     <div id="contact_form">
+    <article class="card mb-5">
+     <div class="card-body">
+         <header class="card-title">
+             <h2>Fale conosco</h2>
+         </header>
+         <div id="contact_form">
 
-      <div class="flash_message"></div>
-      <%= simple_form_for(@contact) do |f| %>
+            <div class="flash_message"></div>
+            <%= simple_form_for(@contact) do |f| %>
 
-      <div class="form-inputs">
-       <%= f.input :name %>
-       <%= f.input :email %>
-       <%= f.input :message %>
+            <div class="form-inputs">
+             <%= f.input :name %>
+             <%= f.input :email %>
+             <%= f.input :message %>
+         </div>
+
+         <div class="form-actions">
+             <%= f.button :submit, "Enviar", class: 'btn btn-primary' %>
+         </div>
+         <% end %>
      </div>
-
-     <div class="form-actions">
-       <%= f.button :submit, "Enviar", class: 'btn btn-primary' %>
-     </div>
-     <% end %>
-   </div>
 
 
  </div>

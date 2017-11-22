@@ -1,4 +1,5 @@
-class Users::BaseController < ApplicationControllerActionController::Base
+class Users::BaseController < ActionController::Base
   protect_from_forgery with: :exception
+
   layout 'users/layouts/application'
 end

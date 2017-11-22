@@ -1,5 +1,5 @@
-@import "bootstrap";
-
+@import "now-ui-kit.scss";
+@import "application.scss";
 /*************************************************************
 * HTML and body style
 **************************************************************/
@@ -10,7 +10,7 @@ html, body {
 
 body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 13px;
+    font-size: 16px;
     color: #3e4855;
     background-color: #fff;
     line-height: 1.42857143;
@@ -28,8 +28,12 @@ input[type="radio"], input[type="checkbox"] {
 
 .container {
   height: 100%;
-}
+  margin-top: 5%;
 
+}
+.container-sessions{
+  
+}
 .vertical-centering {
   position: relative;
   top: 50%;
@@ -38,6 +42,6 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .horizontal-centering {
-  width: 350px;
+  width: 450px;
   margin: auto;
 }
