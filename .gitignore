@@ -24,4 +24,4 @@
 
 config/database.yml
 coverage
- config/application.yml
+config/application.yml

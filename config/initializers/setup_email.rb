@@ -2,7 +2,7 @@
   ActionMailer::Base.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :domain               => "robson.tsi.pro.br",
+    :domain               => "educacional.mat.br",
     :user_name            => ENV['GMAIL_USERNAME'],
     :password             => ENV['GMAIL_PASSWORD'],
     :authentication       => "plain",
