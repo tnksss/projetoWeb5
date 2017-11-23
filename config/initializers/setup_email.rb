@@ -2,10 +2,11 @@
   ActionMailer::Base.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :domain               => "educacional.mat.br",
-    :user_name            => ENV['GMAIL_USERNAME'],
-    :password             => ENV['GMAIL_PASSWORD'],
+    :domain               => "gmail.com",
+    :user_name            => 'onlineauctionutfpr@gmail.com',
+    :password             => 'online123',
     :authentication       => "plain",
-    :enable_starttls_auto => true
+    :enable_starttls_auto => true,
+    :openssl_verify_mode => 'none'
   }
 #end

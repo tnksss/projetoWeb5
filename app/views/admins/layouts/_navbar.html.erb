@@ -1,39 +1,38 @@
 <nav class="navbar navbar-expand-lg bg-danger ">
+    
+    <%= link_to "Online Auction", root_path, class: "nav-brand" %>
 
-  
-  <%= link_to "Online Auction", root_path, class: "nav-brand" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <% if admin_signed_in? %>      
+                <%= link_to 'Dashboard', admins_root_path, class: 'nav-link' %>
+                <% else %>
+                <%= link_to 'Home', root_path, class: 'nav-link' %>
+                <% end %> 
+            </li>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <% if admin_signed_in? %>      
-        <%= link_to 'Dashboard', admins_root_path, class: 'nav-link' %>
-        <% else %>
-        <%= link_to 'Home', root_path, class: 'nav-link' %>
-        <% end %> 
-      </li>
-
-      <% if admin_signed_in? %>
-         <li class="nav-item dropdown">
-           <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             <%= current_admin.email %> 
-           </a>
-           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to 'Sair', destroy_admin_session_path, method: :delete,
-                               class: 'dropdown-item' %>
-           </div>
-         </li>
-      <% else %>
-        <li class="nav-item">
-           <%= link_to 'Entrar', new_admin_session_path,
-                                 class: 'btn btn-primary btn-sm' %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+            <% if admin_signed_in? %>
+                 <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         <%= current_admin.email %> 
+                     </a>
+                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <%= link_to 'Sair', destroy_admin_session_path, method: :delete,
+                                                             class: 'dropdown-item' %>
+                     </div>
+                 </li>
+            <% else %>
+                <li class="nav-item">
+                     <%= link_to 'Entrar', new_admin_session_path,
+                                                                 class: 'btn btn-primary btn-sm' %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
 
 </nav>  

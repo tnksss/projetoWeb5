@@ -1,2 +1,7 @@
-GMAIL_USERNAME: 'onlineauctionutfpr@gmail.com'
-GMAIL_PASSWORD: 'online123'
+development:
+  GMAIL_USERNAME: 'onlineauctionutfpr@gmail.com'
+  GMAIL_PASSWORD: 'online123'
+  
+production:
+  GMAIL_USERNAME: 'onlineauctionutfpr@gmail.com'
+  GMAIL_PASSWORD: 'online123'
