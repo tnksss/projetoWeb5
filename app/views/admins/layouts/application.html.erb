@@ -18,9 +18,22 @@
 
     <%= render 'admins/layouts/navbar' %>
 
-    <div class="container">
-      <%= render 'shared/flash_messages' %>
-      <%= yield %>
+    <div class="container-fluid">  
+      <% if admin_signed_in? %>    
+      <div class="row">
+        
+          <div class="col-md-3">
+            <%= render 'admins/layouts/sidebar' %>          
+          </div>
+          <div class="col-md-9">
+            <%= render 'shared/flash_messages' %>
+            <%= yield %>      
+          </div>
+      </div>
+
+      <% else %> 
+      <%= yield %>         
+      <% end %> 
     </div>
 
   </body>
