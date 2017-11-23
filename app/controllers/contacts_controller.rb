@@ -1,22 +1,21 @@
 class ContactsController < ApplicationController
-  def index
+   def index
      @contact = Contact.new
   end
-  
+  def new
+    @contact = Contact.new
+  end
+
   def create
-     @contact = Contact.new(contact_params) 
+    @contact = Contact.new(params[:contact])
 
-     if @contact.save
-       flash[:success] = 'Mensagem enviada com sucesso!'
-       @contact = Contact.new
-     else
-       flash[:error] = 'Existem dados incorretos!'
-     end
+    if @contact.valid?
+      ContactMailer.contact_message(params[:contact]).deliver
+      flash[:notice] = 'Mensagem enviada com sucesso'
+      redirect_to :action => 'index'
+      return  
+    end
+
+    render :action => 'mew'
   end
-
-  private
-  def contact_params
-    params.require(:contact).permit(:name, :email, :message)
-  end
-
-end
+end  
