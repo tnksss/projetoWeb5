@@ -15,12 +15,12 @@ Rails.application.routes.draw do
     namespace :admins do
       root to: 'dashboard#index'      
         resources :products
-
+        
       
     
     end
   end
-  resources :products
+  
 
    
 end

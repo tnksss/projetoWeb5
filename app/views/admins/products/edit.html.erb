@@ -1,0 +1,49 @@
+ 
+<div class="column md8">
+  <h3>Editar Leilao</h3>
+
+   
+    <%= simple_form_for(@product, url: edit_admins_product_path, method: :patch) do |f| %>
+  <% if @product.errors.any? %>
+  <div id="error_explanation">
+      <div class="alert alert-danger">
+      The form contains <%= pluralize(@product.errors.count, "error") %>.
+    </div>
+    <ul> 
+
+    <% @product.errors.full_messages.each do |message| %>
+
+      <li> <%= message %></li>
+    <% end %>
+    </ul>
+    </div>
+  <% end %>
+  <% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: "flash #{key}" %>
+<% end %>
+ 
+
+  </br>
+     <%= f.label :Nome %>
+     <%= f.text_field :name%>
+  </br>
+  </br>
+     <%= f.label :Preco %>
+     <%= f.text_field :price%>
+  </br>  
+  </br> 
+     <%= f.label :Estado %>
+     <%= f.text_field :state%>
+  </br>
+    </br>
+     <%= f.label :Descricao %>
+     <%= f.text_field :description, as: :text %>
+  </br>
+      <%= f.button :submit, 'Atualizar', :class=> "btn btn-primary" %>
+    </br>
+
+
+  <% end %>
+</div> 
+
+      
