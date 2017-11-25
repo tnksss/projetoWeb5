@@ -18,14 +18,14 @@
 
     <%= render 'admins/layouts/navbar' %>
 
-    <div class="container-fluid">  
+    <div class="container">  
       <% if admin_signed_in? %>    
       <div class="row">
         
           <div class="col-md-3">
             <%= render 'admins/layouts/sidebar' %>          
           </div>
-          <div class="col-md-9">
+          <div class="col-md-9 left">
             <%= render 'shared/flash_messages' %>
             <%= yield %>      
           </div>

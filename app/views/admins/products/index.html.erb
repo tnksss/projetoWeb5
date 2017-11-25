@@ -1,5 +1,5 @@
 <h3>Produtos</h3>
-<% @products.each do |product| %>
+
 <table class="table table-bordered">
     <tr>
         
@@ -10,7 +10,7 @@
         <th>Lances</th>
         <th>Ações</th>
     </tr>
-
+<% @products.each do |product| %>
     <tr>
         
         <td><%= product.id %></td>
@@ -18,14 +18,18 @@
         <td><%= product.description %></td>
         <td><%= product.state %></td>
         <td>...</td>
-        <td>            <a href="" class="btn btn-xs btn-info"></a></a>
-            <a class="btn btn-xs btn-warning"></a></a>
-            <%= link_to "Editar", edit_admins_product_url(product.id) , :class => 'btn btn-xs btn-info' %>
-            <a class="btn btn-xs btn-danger"></a></a></td>
-        <td> 
+        <td>
+            <div class="btn-group">
+                <%= link_to "Show", admins_product_url(product.id), class: 'btn btn-sm btn-info' %>
+                <%= link_to "Edit", edit_admins_product_url(product.id), class: 'btn btn-sm btn-warning' %>
+                <%= link_to 'Delete', admins_product_path(product.id),
+                                    :confirm => 'Are you sure?',
+                                    :method => :delete,
+                                    class: 'btn btn-sm btn-danger' %>
 
-        	</td>
+            </div>
+        </td>
     </tr>
-      
+<% end %>      
 </table>
-<% end %>
+
