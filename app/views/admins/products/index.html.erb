@@ -23,7 +23,7 @@
                 <%= link_to "Show", admins_product_url(product.id), class: 'btn btn-sm btn-info' %>
                 <%= link_to "Edit", edit_admins_product_url(product.id), class: 'btn btn-sm btn-warning' %>
                 <%= link_to 'Delete', admins_product_path(product.id),
-                                    :confirm => 'Are you sure?',
+                                   data: { confirm: 'Voce tem certeza que deseja apagar?' },
                                     :method => :delete,
                                     class: 'btn btn-sm btn-danger' %>
 

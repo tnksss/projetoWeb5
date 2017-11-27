@@ -18,7 +18,7 @@
      <%= f.label :Descricao %>
      <%= f.text_field :description, as: :text %>
   </br>
-  
+    <%= f.file_field :images, multiple: true %>
       <%= f.button :submit, 'Cadastrar', :class=> "btn btn-primary" %>
     </br>
 

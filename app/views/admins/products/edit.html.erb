@@ -3,7 +3,7 @@
   <h3>Editar Leilao</h3>
 
    
-    <%= simple_form_for(@product, url: edit_admins_product_path, method: :patch) do |f| %>
+    <%= simple_form_for(@product, url: admins_product_path, method: :patch) do |f| %>
   <% if @product.errors.any? %>
   <div id="error_explanation">
       <div class="alert alert-danger">
@@ -39,6 +39,7 @@
      <%= f.label :Descricao %>
      <%= f.text_field :description, as: :text %>
   </br>
+       <%= f.file_field :images, multiple: true %>
       <%= f.button :submit, 'Atualizar', :class=> "btn btn-primary" %>
     </br>
 
