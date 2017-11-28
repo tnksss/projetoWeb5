@@ -14,13 +14,8 @@ Rails.application.routes.draw do
   authenticate :admin do
     namespace :admins do
       root to: 'dashboard#index'      
-        resources :products
-        
-      
-    
+      resources :products
     end
   end
-  
-
    
 end

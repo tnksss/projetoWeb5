@@ -1,29 +1,6 @@
-<div class="column md8">
-  <h3>Cadastrar Produto</h3>  
-  
-  <%= simple_form_for(@product, url: admins_products_path) do |f| %>
-    </br>
-     <%= f.label :Nome %>
-     <%= f.text_field :name%>
-    </br>
-  </br>
-     <%= f.label :Preco %>
-     <%= f.text_field :price%>
-  </br>  
-  </br> 
-     <%= f.label :Estado %>
-     <%= f.text_field :state%>
-  </br>
-    </br>
-     <%= f.label :Descricao %>
-     <%= f.text_field :description, as: :text %>
-  </br>
-  
-      <%= f.button :submit, 'Cadastrar', :class=> "btn btn-primary" %>
-    </br>
-
-
-  <% end %>
+<div class="col-md-8">
+  <h3>Cadastrar Produto</h3>
+  <%= render 'form' %>
 </div> 
 
       
