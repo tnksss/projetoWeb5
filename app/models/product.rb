@@ -3,7 +3,8 @@ class Product < ApplicationRecord
   	# has_many :auction_products
   	# has_many :auctions, :through => :auction_products
    	# mount_uploaders :images, ImageUploader
-	validates :name, :price, presence: true #:images
+	 mount_uploaders :images, ImageUploader
+	validates :name, :price, :images, presence: true
   	# validates_numericality_of :price, :greater_than => 0
 end
      

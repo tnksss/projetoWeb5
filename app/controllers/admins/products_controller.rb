@@ -16,6 +16,11 @@ class Admins::ProductsController < Admins::BaseController
    end 
     
   end
+  def destroy
+    product = Product.find(params[:id])
+    product.destroy
+    redirect_to admins_products_path, :notice => "Produto deletado."
+  end
    def update
     @product = Product.find(params[:id])
     if @product.update_attributes(product_params)
@@ -43,7 +48,7 @@ class Admins::ProductsController < Admins::BaseController
 
 
   def product_params
-    params.require(:product).permit(:name, :price, :state, :description)
+    params.require(:product).permit(:name, :price, :state, :description,  {images: []})
   end
 
 end

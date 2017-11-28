@@ -1,0 +1,9 @@
+
+<%= simple_form_for([:admins, @product]) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :price %>
+  <%= f.input :state %>
+  <%= f.input :description %>
+  <%= f.file_field :images, multiple: true, class: "btn-primary btn"%>
+  <%= f.submit 'Salvar', class: "btn btn-lg btn-info" %>
+<% end %>

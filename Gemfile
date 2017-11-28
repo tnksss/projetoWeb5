@@ -13,7 +13,9 @@
  gem 'simple_form'
  gem 'rails-i18n', '~> 5.0.0'
  gem 'devise'
-
+ gem 'carrierwave'
+ gem 'mini_magick', '~> 4.3'
+ 
  group :development, :test do
 
    gem 'better_errors'

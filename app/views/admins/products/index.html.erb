@@ -1,4 +1,8 @@
+
 <h3>Produtos</h3>
+<div class="row">
+    <%= link_to "Cadastrar", new_admins_product_url, class: 'btn btn-lg btn-primary' %>
+</div>
 
 <table class="table table-bordered">
     <tr>
@@ -23,7 +27,7 @@
                 <%= link_to "Show", admins_product_url(product.id), class: 'btn btn-sm btn-info' %>
                 <%= link_to "Edit", edit_admins_product_url(product.id), class: 'btn btn-sm btn-warning' %>
                 <%= link_to 'Delete', admins_product_path(product.id),
-                                    :confirm => 'Are you sure?',
+                                   data: { confirm: 'Voce tem certeza que deseja apagar?' },
                                     :method => :delete,
                                     class: 'btn btn-sm btn-danger' %>
 
