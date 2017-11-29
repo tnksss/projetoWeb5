@@ -3,6 +3,10 @@ class ImageUploader < CarrierWave::Uploader::Base
    include CarrierWave::MiniMagick
  
   storage :file
+
+  def default_url(*args)
+    "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+  end
  
   # Local onde será guardado as imagens
   def store_dir
@@ -25,6 +29,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   version :big do
      process resize_to_fit: [300, 300]
   end
+
+
  
   # Tipos de extensão aceitas
   def extension_whitelist

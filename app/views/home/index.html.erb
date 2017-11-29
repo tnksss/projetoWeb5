@@ -47,7 +47,7 @@
 
         <!--Card image-->
         
-            <%= link_to image_tag(product.images.first.url(:medium), :style => "max-height: 180px !important"), product_path(product) %>
+            <%= image_tag(product.images.first.url(:medium), :style => "max-height: 180px !important") %>
 
         </a>        
         <hr>

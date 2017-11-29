@@ -11,10 +11,11 @@
  gem 'bootstrap', '~> 4.0.0.beta'
  gem 'pg', '0.18.4'
  gem 'simple_form'
- gem 'rails-i18n', '~> 5.0.0'
+ gem 'rails-i18n'
  gem 'devise'
  gem 'carrierwave'
  gem 'mini_magick', '~> 4.3'
+ gem 'faker'
  
  group :development, :test do
 
