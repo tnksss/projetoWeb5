@@ -18,7 +18,11 @@
       <!-- Portfolio Item Row -->
       <div class="row">
           <div class="col-md-8">
-            <%= image_tag(@product.images.first.url(:medium)  , :style => "max-height: 430px !important") %>
+             <% if !@product.images.first.blank? %>
+                <%= image_tag(@product.images.first.url(:medium)  , :style => "max-height: 430px !important") %>
+             <% else %>
+                <img src="/images/fallback/default.png">
+             <% end %>   
           </div>
           <div class="col-md-4">
             <h3 class="my-3">Descrição</h3>

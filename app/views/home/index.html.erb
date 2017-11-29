@@ -46,8 +46,12 @@
       <div class="card" style="height: 450px;">
 
         <!--Card image-->
-        
-            <%= image_tag(product.images.first.url(:medium), :style => "max-height: 180px !important") %>
+        <% if !product.images.first.blank? %>
+           <%= image_tag(product.images.first.url(:medium), :style => "max-height: 180px !important") %>
+        <% else %>
+           <img src="/images/fallback/default.png">
+        <% end %>
+           
 
         </a>        
         <hr>
