@@ -3,7 +3,7 @@
 
   <!-- Portfolio Item Heading -->
   <h1 class="my-4">Leilões
-    <small>Secondary Text</small>
+    
   </h1>
 
   <!-- Portfolio Item Row -->
@@ -47,7 +47,7 @@
 
         <!--Card image-->
         <% if !product.images.first.blank? %>
-           <%= image_tag(product.images.first.url(:medium), :style => "max-height: 180px !important") %>
+           <%= image_tag(product.images.first.url(:medium), :style => "height: 180px !important") %>
         <% else %>
            <img src="/images/fallback/default.png">
         <% end %>

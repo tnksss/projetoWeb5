@@ -47,17 +47,18 @@
       </div>
       <!-- /.row -->
       <!-- Related Projects Row -->
-      <h3 class="my-4">Mais Imagens</h3>
+      <% if !@product.images.second.blank? %>
+        <h3 class="my-4">Mais Imagens</h3>
 
-      <div class="row">
-        <% @product.images.each do |image| %>
-        <div class="col-md-3 col-sm-6 mb-4">
-            <a href="#">
-             <%= image_tag(image.url(:medium)  , :style => "max-height: 130px !important") %>
-            </a>
-          </div>
-        <% end %>          
-      </div>
-      
+        <div class="row">
+          <% @product.images.each do |image| %>
+          <div class="col-md-3 col-sm-6 mb-4">
+              <a href="#">
+               <%= image_tag(image.url(:medium)  , :style => "max-height: 130px !important") %>
+              </a>
+            </div>
+          <% end %>          
+        </div>
+      <% end %>
     <!-- /.row -->    
 
