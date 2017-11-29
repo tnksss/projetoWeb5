@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :contacts, only: [:create, :index]
-
+  resources :products, only: [:index,  :show]
   authenticate :user do
     namespace :users do
       root to: 'dashboard#index'

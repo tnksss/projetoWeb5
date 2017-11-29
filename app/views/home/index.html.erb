@@ -2,7 +2,7 @@
 <div class="container-fluid">
 
   <!-- Portfolio Item Heading -->
-  <h1 class="my-4">Page Heading
+  <h1 class="my-4">Leilões
     <small>Secondary Text</small>
   </h1>
 
@@ -37,32 +37,34 @@
   <!-- /.row -->
 
   <!-- Related Projects Row -->
-  <h3 class="my-4">Related Projects</h3>
+  <h3 class="my-4">Produtos em destaque</h3>
 
   <div class="row">
 
+    <% @products.each do |product| %>
     <div class="col-md-3 col-sm-6 mb-4">
-      <a href="#">
-        <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-      </a>
-    </div>
+      <div class="card" style="height: 450px;">
 
-    <div class="col-md-3 col-sm-6 mb-4">
-      <a href="#">
-        <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-      </a>
-    </div>
+        <!--Card image-->
+        
+            <%= link_to image_tag(product.images.first.url(:medium), :style => "max-height: 180px !important"), product_path(product) %>
 
-    <div class="col-md-3 col-sm-6 mb-4">
-      <a href="#">
-        <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-      </a>
+        </a>        
+        <hr>
+        <!--Card content-->
+        <div class="card-body">
+            <!--Title-->
+            <h4 class="card-title"><%= product.name %></h4>
+            <!--Text-->
+            <p class="card-text"><%= truncate(product.description, lenght: 50) %></p>
+            <p class="card-text">Lance Atual: <strong> <%= product.price %> </strong></p>
+            <a href="#" class="btn btn-primary fixed-bottom" >Lance!</a>
+        </div>
+      </div>
     </div>
+    <% end %>
 
-    <div class="col-md-3 col-sm-6 mb-4">
-      <a href="#">
-        <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-      </a>
+
     </div>
 
   </div>
