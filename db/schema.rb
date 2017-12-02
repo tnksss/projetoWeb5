@@ -33,6 +33,23 @@ ActiveRecord::Schema.define(version: 20171127220100) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "auction_products", id: :serial, force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "auction_id"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "auctions", id: :serial, force: :cascade do |t|
+    t.datetime "begin_date"
+    t.datetime "end_date"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image"
+  end
+
   create_table "contacts", force: :cascade do |t|
     t.string "name"
     t.string "email"

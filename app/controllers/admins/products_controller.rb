@@ -37,11 +37,6 @@ class Admins::ProductsController < Admins::BaseController
   def edit
     @product = Product.find(params[:id])
   end
-  def destroy
-    product = Product.find(params[:id])
-    product.destroy
-    redirect_to admins_products_path, :notice => "Produto deletado."
-  end
 
   private
   

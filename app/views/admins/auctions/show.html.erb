@@ -2,11 +2,11 @@
       <!-- Portfolio Item Heading -->
       <div class="row">
         <div class="col-md-8">
-          <h2><%= @product.name %></h2>    
+          <h2><%= @auction.title %></h1>    
         </div>
         <div class="col-md-4 align-right">
-          <%= link_to "Edit", edit_admins_product_url(@product.id), class: 'btn btn-sm btn-warning' %>
-          <%= link_to 'Delete', admins_product_path(@product.id),
+          <%= link_to "Edit", edit_admins_auction_url(@auction.id), class: 'btn btn-sm btn-warning' %>
+          <%= link_to 'Delete', admins_auction_path(@auction.id),
                               data: {confirm: 'Voce tem certeza que deseja apagar?'},
                               :method => :delete,
                               class: 'btn btn-sm btn-danger' %>  
@@ -18,16 +18,17 @@
       <!-- Portfolio Item Row -->
       <div class="row">
           <div class="col-md-8">
-             <% if !@product.images.first.blank? %>
-                <%= image_tag(@product.images.first.url(:medium)  , :style => "max-height: 430px !important") %>
+             <% if !@auction.image.blank? %>
+                <%= image_tag(@auction.image.url(:medium)  , :style => "max-height: 430px !important") %>
+                
              <% else %>
                 <img src="/images/fallback/default.png">
              <% end %>   
           </div>
           <div class="col-md-4">
-            <h3 class="my-3">Descrição</h3>
-            <p><%= @product.description %></p>
-            <h5><strong>Preço: </strong><%= @product.price %></h5>
+            <h3 class="my-3">Data de Inicio</h3>
+            <p><%= @auction.begin_date %></p>
+            <h5><strong>Data de fim: </strong><%= @auction.end_date %></h5>
             <h5> <strong>Lances: </strong></h5>
             <table class="table table-bordered">
 	            <tr>
@@ -47,18 +48,24 @@
       </div>
       <!-- /.row -->
       <!-- Related Projects Row -->
-      <% if !@product.images.second.blank? %>
-        <h3 class="my-4">Mais Imagens</h3>
-
+      
+        <h3 class="my-4">Imagens dos Produtos desse Leilao</h3>
+         <% @auction.products.each do |product| %>
+          <h2><%= product.name %></h2>  
         <div class="row">
-          <% @product.images.each do |image| %>
-          <div class="col-md-3 col-sm-6 mb-4">
-              <a href="#">
-               <%= image_tag(image.url(:medium)  , :style => "max-height: 130px !important") %>
-              </a>
-            </div>
-          <% end %>          
+          
+              <% product.images.each do |image| %>
+                <div class="col-md-3 col-sm-6 mb-4">
+                  <a href="#" >
+                      <%= link_to  product_path(product, :id=> product.id) do %>  
+                          <%= image_tag(image.url(:medium)) %>
+                      <% end %>   
+                  </a>
+                  </div>
+             <% end %> 
+          
         </div>
-      <% end %>
+        <% end %>
+      
     <!-- /.row -->    
 

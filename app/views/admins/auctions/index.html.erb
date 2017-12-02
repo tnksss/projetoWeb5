@@ -1,0 +1,40 @@
+
+<h3>Leiloes</h3>
+<div class="row">
+    <%= link_to "Cadastrar", new_admins_auction_url, class: 'btn btn-lg btn-primary' %>
+</div>
+
+<table class="table table-bordered">
+    <tr>
+        
+        <th>Id</th>
+        <th>Titulo</th>
+        <th>Data inicio</th>
+        <th>Data fechamento</th>
+        <th>Lances</th>
+        <th>Ações</th>
+    </tr>
+<% @auctions.each do |auction| %>
+    <tr>
+        
+        <td><%= auction.id %></td>
+        <td><%= auction.title %></td>
+        <td><%= auction.begin_date%></td>
+        <td><%= auction.end_date%></td>
+        <td>...</td>
+        <td>
+            <div class="">
+                <%= link_to "Show", admins_auction_url(auction.id), class: 'btn btn-sm btn-info' %>
+                <%= link_to "Edit", edit_admins_auction_url(auction.id), class: 'btn btn-sm btn-warning' %>
+                <%= link_to 'Delete', admins_auction_path(auction.id),
+                                   data: { confirm: 'Voce tem certeza que deseja apagar?' },
+                                    :method => :delete,
+                                    class: 'btn btn-sm btn-danger' %>
+
+            </div>
+        </td>
+    </tr>
+<% end %>
+
+</table>
+
