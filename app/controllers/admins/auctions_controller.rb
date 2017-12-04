@@ -14,13 +14,14 @@ class Admins::AuctionsController < Admins::BaseController
 
   def edit
     @auction = Auction.find(params[:id])
+
   end
 
   def update
     @auction = Auction.find(params[:id])
     if @auction.update_attributes(auction_params)
        flash[:success] = "Leilao Atualizado"
-      redirect_to @admins_auctions_path
+      redirect_to admins_auctions_path
     else
       render 'edit'
     end

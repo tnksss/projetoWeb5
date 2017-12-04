@@ -1,4 +1,4 @@
-class ProductController < ApplicationController
+class ProductsController < ApplicationController
 	
   def index
   end
@@ -13,3 +13,4 @@ class ProductController < ApplicationController
   	@product = Product.new
   end
 end
+ 

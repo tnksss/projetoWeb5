@@ -45,14 +45,16 @@ ActiveRecord::Schema.define(version: 20171127220100) do
     t.datetime "begin_date"
     t.datetime "end_date"
     t.string "title"
+    t.string "bet", default: "Sem Lances"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
   end
 
-  create_table "contacts", force: :cascade do |t|
+  create_table "contacts", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.string "subject"
     t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

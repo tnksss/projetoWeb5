@@ -5,31 +5,41 @@
   <h1 class="my-4">Leilões
     
   </h1>
-
+ 
   <!-- Portfolio Item Row -->
+    <h3 class="my-4">Leiloes em destaque</h3>
    <div class="row">
 
     
 
-    <div class="col-md-4 col-sm-6 mb-4">
-      <a href="#">
-        <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-      </a>
+  <% @auctions.each do |auction| %>
+    <div class="col-md-3 col-sm-6 mb-4">
+       <div class="card" style="height: 450px;">
+        
+        <!--Card image-->
+        <% if !auction.image.blank? %>
+           <%= image_tag(auction.image.url(:medium), :style => "height: 180px !important") %>
+           
+        <% else %>
+           <img src="/images/fallback/default.png">
+        <% end %>
+        </a>         
+        <hr>
+        <!--Card content-->
+        <div class="card-body"> 
+            <!--Title-->
+            <h4 class="card-title"><%= auction.title %></h4>
+            <!--Text-->
+            <p class="card-text"><%= auction.begin_date %></p>
+            <p class="card-text"><%= auction.end_date %></p>
+            <p class="card-text">Lance Atual: <strong> <%= auction.bet %> </strong></p>
+           <%= link_to "Update", edit_home_path(auction.id), class: 'btn btn-primary fixed-bottom' %>
+            <a href="#" class="" >Lance!</a>
+        </div>
+      </div>
     </div>
+    <% end %>
 
-    <div class="col-md-4 col-sm-6 mb-4">
-      <a href="#">
-        <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-      </a>
-    </div>
-
-    <div class="col-md-4 col-sm-6 mb-4">
-      <a href="#">
-        <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-      </a>
-    </div>
-
-  </div>
 
 
 
@@ -48,6 +58,7 @@
         <!--Card image-->
         <% if !product.images.first.blank? %>
            <%= image_tag(product.images.first.url(:medium), :style => "height: 180px !important") %>
+            <%= link_to "Show", product_url(product.id), class: 'btn btn-sm btn-info' %>
         <% else %>
            <img src="/images/fallback/default.png">
         <% end %>
@@ -61,8 +72,6 @@
             <h4 class="card-title"><%= product.name %></h4>
             <!--Text-->
             <p class="card-text"><%= truncate(product.description, lenght: 50) %></p>
-            <p class="card-text">Lance Atual: <strong> <%= product.price %> </strong></p>
-            <a href="#" class="btn btn-primary fixed-bottom" >Lance!</a>
         </div>
       </div>
     </div>

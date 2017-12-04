@@ -4,13 +4,7 @@
         <div class="col-md-8">
           <h2><%= @product.name %></h1>    
         </div>
-        <div class="col-md-4 align-right">
-          <%= link_to "Edit", edit_admins_product_url(@product.id), class: 'btn btn-sm btn-warning' %>
-          <%= link_to 'Delete', admins_product_path(@product.id),
-                              data: {confirm: 'Voce tem certeza que deseja apagar?'},
-                              :method => :delete,
-                              class: 'btn btn-sm btn-danger' %>  
-        </div>
+       
         
       </div>
       
