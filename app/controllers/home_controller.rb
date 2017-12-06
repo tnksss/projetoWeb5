@@ -24,7 +24,7 @@ end
     else
        flash[:success] = "Erro"
       redirect_to root_path
-    end
+    end 
 end  
   end
  private
