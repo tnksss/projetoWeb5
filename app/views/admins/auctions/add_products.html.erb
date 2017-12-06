@@ -1,0 +1,30 @@
+<table class="table table-bordered">
+    <tr>
+        
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Estado</th>
+        <th>Lances</th>
+        <th>Ações</th>
+    </tr>
+<% @products.each do |product| %>
+    <tr>
+        
+        <td><%= product.id %></td>
+        <td><%= product.name %></td>
+        <td><%= product.description %></td>
+        <td><%= product.state %></td>
+        <td>...</td>
+        <td>
+            <div class="">
+                <% if @auction.product_ids.include?(product.id) %>
+                    <%= link_to "Remover", '#', class: 'btn btn-sm btn-info' %>
+                <% else %>
+                    <%= link_to "Adicionar", '#', class: 'btn btn-sm btn-info' %>
+                <% end %>    
+            </div>
+        </td>
+    </tr>
+<% end %>      
+</table>
