@@ -11,10 +11,10 @@
    <div class="row">
 
     
-
+ 
   <% @auctions.each do |auction| %>
     <div class="col-md-3 col-sm-6 mb-4">
-       <div class="card" style="height: 450px;">
+       <div class="card" style="height: 500px;">
         
         <!--Card image-->
         <% if !auction.image.blank? %>
@@ -32,9 +32,11 @@
             <!--Text-->
             <p class="card-text"><%= auction.begin_date %></p>
             <p class="card-text"><%= auction.end_date %></p>
-            <p class="card-text">Lance Atual: <strong> <%= auction.bet %> </strong></p>
-           <%= link_to "Update", edit_home_path(auction.id), class: 'btn btn-primary fixed-bottom' %>
-            <a href="#" class="" >Lance!</a>
+            <p class="card-text">Maior lance: <strong> <%= auction.bet %> </strong></p>
+<p class="card-text"> </p>
+           <%= link_to "Efetuar Lance", edit_home_path(auction.id), class: 'btn btn-primary fixed-bottom t' %>
+           
+           
         </div>
       </div>
     </div>
