@@ -36,11 +36,18 @@ class Admins::AuctionsController < Admins::BaseController
       render :new
     end
   end
-def destroy
+
+  def destroy
     auction = Auction.find(params[:id])
     auction.destroy
     redirect_to admins_auctions_path, :notice => "Leilao deletado."
   end
+
+  def add_products
+    @auction = Auction.find(params[:auction_id])
+    @products = Product.all
+  end
+
   private
 
   def auction_params
