@@ -14,7 +14,7 @@ end
       flash[:error] = "Por Favor entre em sua conta para continuar"
       redirect_to root_path
   else 
-   @auction = Auction.find(params[:id])
+   @auction = Auction.find(params[:id]) 
      ap = auction_params
      ap[:bet] = current_user.email  
     if @auction.update_attributes(ap)

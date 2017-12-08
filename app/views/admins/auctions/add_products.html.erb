@@ -9,6 +9,7 @@
         <th>Ações</th>
     </tr>
 <% @products.each do |product| %>
+ <% if (@auction.product_ids.include?(product.id) || (product.flag == true)) %> 
     <tr>
         
         <td><%= product.id %></td>
@@ -19,12 +20,19 @@
         <td>
             <div class="">
                 <% if @auction.product_ids.include?(product.id) %>
-                    <%= link_to "Remover", '#', class: 'btn btn-sm btn-info' %>
+                    <%= form_with(url: admins_auction_delete_product_url(product_id: product.id, auction_id: @auction.id), html: {class: 'form-inline'}) do |f| %> 
+    <%= f.hidden_field :product_id, value: product.id %>
+    <%= f.submit "Remover", class: 'btn btn-sm btn-info' %>
+<% end %>
                 <% else %>
-                    <%= link_to "Adicionar", '#', class: 'btn btn-sm btn-info' %>
+                    <%= form_with(url: admins_auction_add_product_url(@auction), html: {class: 'form-inline'}) do |f| %>
+    <%= f.hidden_field :product_id, value: product.id %>
+    <%= f.submit "Adicionar", class: 'btn btn-primary' %>
+<% end %>
                 <% end %>    
             </div>
         </td>
     </tr>
+<% end %>
 <% end %>      
-</table>
+</table>   

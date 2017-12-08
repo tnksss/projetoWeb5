@@ -16,7 +16,11 @@ Rails.application.routes.draw do
       root to: 'dashboard#index'      
       resources :products
       resources :auctions do
-        get 'add_products', to: 'auctions#add_products'
+        get 'add_products', to: 'auctions#add_products' 
+        post 'add_product', to: "auctions#add_new_product"
+       
+         post 'delete_product', to: "auctions#delete_product"
+      
       end
     end
   end
