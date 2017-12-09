@@ -1,19 +1,17 @@
 <!-- Page Content -->
 <div class="container-fluid">
 
-  <!-- Portfolio Item Heading -->
-  <h1 class="my-4">Leilões
-    
-  </h1>
+  
  
   <!-- Portfolio Item Row -->
-    <h3 class="my-4">Leiloes em destaque</h3>
+  <div class="card card-auctions">
+    <h3 class="text-center">Leiloes em destaque</h3>
    <div class="row">
 
     
  
   <% @auctions.each do |auction| %>
-    <div class="col-md-3 col-sm-6 mb-4">
+    <div class="col-md-4 col-sm-6">
        <div class="card" style="height: 500px;">
         
         <!--Card image-->
@@ -30,11 +28,10 @@
             <!--Title-->
             <h4 class="card-title"><%= auction.title %></h4>
             <!--Text-->
-            <p class="card-text"><%= auction.begin_date %></p>
-            <p class="card-text"><%= auction.end_date %></p>
-            <p class="card-text">Maior lance: <strong> <%= auction.bet %> </strong></p>
-<p class="card-text"> </p>
-           <%= link_to "Efetuar Lance", edit_home_path(auction.id), class: 'btn btn-primary fixed-bottom t' %>
+            <p class="card-text">Status: </p>
+            <p class="card-text">Qtde de Itens: <strong> XXX </strong></p>
+            
+           <%= link_to "Ver produtos", edit_home_path(auction.id), class: 'btn btn-primary fixed-bottom t' %>
            
            
         </div>
@@ -47,6 +44,7 @@
 
   </div>
   <!-- /.row -->
+  </div>
 
   <!-- Related Projects Row -->
   <h3 class="my-4">Produtos em destaque</h3>
