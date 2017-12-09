@@ -9,9 +9,8 @@
         
         <th>Id</th>
         <th>Titulo</th>
-        <th>Data inicio</th>
-        <th>Data fechamento</th>
-        <th>Lances</th>
+        <th>Status</th>
+        <th>Qtde de Itens</th>
         <th>Ações</th>
     </tr>
 <% @auctions.each do |auction| %>
@@ -19,18 +18,16 @@
         
         <td><%= auction.id %></td>
         <td><%= auction.title %></td>
-        <td><%= auction.begin_date%></td>
-        <td><%= auction.end_date%></td>
+        <td>...</td>
         <td>...</td>
         <td>
             <div class="">
-                <%= link_to "Show", admins_auction_url(auction.id), class: 'btn btn-sm btn-info' %>
                 <%= link_to "Edit", edit_admins_auction_url(auction.id), class: 'btn btn-sm btn-warning' %>
                 <%= link_to 'Delete', admins_auction_path(auction.id),
                                    data: { confirm: 'Voce tem certeza que deseja apagar?' },
                                     :method => :delete,
                                     class: 'btn btn-sm btn-danger' %>
-                <%= link_to "Adicionar produtos", admins_auction_add_products_path(auction), class: 'btn btn-sm btn-info' %>
+                <%= link_to "Add produtos", admins_auction_add_products_path(auction), class: 'btn btn-sm btn-info' %>
             </div>
         </td>
     </tr>
