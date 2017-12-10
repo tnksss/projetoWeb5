@@ -5,7 +5,7 @@ class Admins::AuctionsController < Admins::BaseController
 
   def new
     @auction = Auction.new
-  end
+  end 
 
   def show 
     @auction = Auction.find(params[:id])
@@ -47,18 +47,18 @@ class Admins::AuctionsController < Admins::BaseController
     @auction = Auction.find(params[:auction_id])
     @products = Product.all.unscoped.order("id")
 
-  end
+  end 
 
  def add_new_product
   @product = Product.find(params[:product_id])
-  @auction = Auction.find(params[:auction_id])
-  @auction.product_ids << params[:product_id] 
-  params = acp
+  @auction = Auction.find(params[:auction_id]) #
+  @auction.product_ids << params[:product_id]  #
+  params = acp # 
   par = pp
-  params[:product_ids] =  @auction.product_ids 
+  params[:product_ids] =  @auction.product_ids  #
   par[:flag] = false
   @product.update_attributes(par)
-  @auction.update_attributes(params)
+  @auction.update_attributes(params) #
    redirect_back(fallback_location: root_path)
 end 
 def delete_product

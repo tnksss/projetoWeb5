@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :admins
   root to: 'home#index'
   resources :home
+  resources :launches
+   post 'add_launches', to: "launches#add_new_launch"
+   get 'add_launches', to: 'launches#add_launch' 
   devise_for :users
   resources :contacts, only: [:create, :index]
   resources :products, only: [:index,  :show]

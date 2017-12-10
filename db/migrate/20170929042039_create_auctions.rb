@@ -4,7 +4,7 @@ class CreateAuctions < ActiveRecord::Migration[5.0]
       t.datetime :begin_date
       t.datetime :end_date
       t.string :title
-       t.string :bet, default: 'Sem Lances'
+      
       t.timestamps
     end
   end
