@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171127220100) do
+ActiveRecord::Schema.define(version: 20171209003019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 20171127220100) do
     t.datetime "begin_date"
     t.datetime "end_date"
     t.string "title"
-    t.string "bet", default: "Sem Lances"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
@@ -60,6 +59,12 @@ ActiveRecord::Schema.define(version: 20171127220100) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "launches", force: :cascade do |t|
+    t.float "price"
+    t.integer "product_id"
+    t.index ["product_id"], name: "index_launches_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.decimal "price", precision: 7, scale: 2
@@ -68,6 +73,15 @@ ActiveRecord::Schema.define(version: 20171127220100) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.json "images"
+    t.boolean "flag", default: true
+  end
+
+  create_table "user_launches", id: :serial, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "launch_id"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

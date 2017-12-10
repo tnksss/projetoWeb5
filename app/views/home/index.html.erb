@@ -1,17 +1,22 @@
 <!-- Page Content -->
 <div class="container-fluid">
 
+
   
  
   <!-- Portfolio Item Row -->
   <div class="card card-auctions">
-    <h3 class="text-center">Leiloes em destaque</h3>
+
+ 
+ 
    <div class="row">
 
     
  
   <% @auctions.each do |auction| %>
-    <div class="col-md-4 col-sm-6">
+
+   <div class="col-md-4 col-sm-6">
+
        <div class="card" style="height: 500px;">
         
         <!--Card image-->
@@ -22,17 +27,17 @@
            <img src="/images/fallback/default.png">
         <% end %>
         </a>         
-        <hr>
+        <hr> 
         <!--Card content-->
         <div class="card-body"> 
             <!--Title-->
             <h4 class="card-title"><%= auction.title %></h4>
             <!--Text-->
+
             <p class="card-text">Status: </p>
             <p class="card-text">Qtde de Itens: <strong> XXX </strong></p>
             
            <%= link_to "Ver produtos", edit_home_path(auction.id), class: 'btn btn-primary fixed-bottom t' %>
-           
            
         </div>
       </div>
@@ -44,8 +49,12 @@
 
   </div>
   <!-- /.row -->
+<<<<<<< HEAD
   </div>
 
+=======
+ </div>
+>>>>>>> 6c1e9ab56d5535dd58801692446cb35628580b96
   <!-- Related Projects Row -->
   <h3 class="my-4">Produtos em destaque</h3>
 
@@ -53,7 +62,7 @@
 
     <% @products.each do |product| %>
     <div class="col-md-3 col-sm-6 mb-4">
-      <div class="card" style="height: 450px;">
+      <div class="card" style="height: auto;">
 
         <!--Card image-->
         <% if !product.images.first.blank? %>
@@ -65,13 +74,66 @@
            
 
         </a>        
-        <hr>
+        <hr> 
         <!--Card content-->
-        <div class="card-body">
+        <div class="card-body">   
             <!--Title-->
-            <h4 class="card-title"><%= product.name %></h4>
-            <!--Text-->
+            <h4 class="card-title"><%= product.name %></h4> 
+            <!--Text--> 
+            
             <p class="card-text"><%= truncate(product.description, lenght: 50) %></p>
+            <% y = 0 %>
+            <% @li = 0 %>
+            <% @ui = 0 %>
+             <% @launches.each do |launch| %>
+              <% if (launch.product_id == product.id) %>
+                 
+                 <% if launch.price > y  %>  
+                    <% y = launch.price %>
+                    
+                    <% @li = launch.id %>
+                  <% end %>
+              <% end %>
+             <% end %>
+             <% @uls.each do |ul| %>
+                  <% if @li!=0  && ul.launch_id == @li%>
+                    <% @ui = ul.user_id %>
+                   
+                  <% end %>  
+             <% end %>
+             <% @users.each do |u| %>
+                  <% if @ui!=0  && u.id == @ui %>
+                    <% @name = u.name %>
+                   
+                  <% end %>  
+             <% end %>
+             
+            <p class="card-text">Maior lance de : <strong>
+              <% if y == 0 %>
+                  Sem Lances ate o momento
+             <% else %>
+             <%=@name%>
+             
+             <%end%>
+             
+           </strong></p>
+            <p class="card-text">No valor de : <strong>
+              <%= y %>
+            </strong></p>
+        
+            <% if user_signed_in? %>
+            
+                <%= simple_form_for @launch do |f| %>
+                  <%= f.input_field :current_user_id, as: :hidden, value: current_user.id%>
+                 <%= f.input_field :product_id, as: :hidden, value: product.id%>
+                   <p class="card-text"><%= f.input :price  %></p>    
+                    <p class="card-text" style="padding-top: 25px;"><%= f.submit 'Efetuar Lance', class: "btn btn-primary fixed-bottom t" %></p>            
+                     
+                  <% end %>
+              <% else %>
+                  Acesse sua conta para dar um lance
+              <% end %>
+
         </div>
       </div>
     </div>
@@ -84,4 +146,3 @@
   <!-- /.row -->
 
 </div>
-    <!-- /.container -->
