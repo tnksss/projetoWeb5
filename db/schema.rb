@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20171209003019) do
     t.datetime "begin_date"
     t.datetime "end_date"
     t.string "title"
+    t.string "bet", default: "Sem Lances"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
