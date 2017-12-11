@@ -19,6 +19,7 @@
         <%= render 'admins/layouts/navbar' %>
 
         <div class="container">  
+            
             <% if admin_signed_in? %>    
             <div class="row">
              
@@ -30,7 +31,11 @@
                     <%= yield %>      
                 </div>
             </div>
-
+            <%else %>
+            <%= render 'shared/flash_messages' %>
+                <div class="col-md-6" style="margin-left: 25%;">
+                    <%= yield %>      
+                </div>
             <% end %> 
         </div>
 

@@ -10,26 +10,15 @@
         <th>Id</th>
         <th>Titulo</th>
         <th>Status</th>
-        <th>Qtde de Itens</th>
-        <th>Ações</th>
+        <th>Qtd Itens</th>
     </tr>
 <% @auctions.each do |auction| %>
     <tr>
         
-        <td><%= auction.id %></td>
-        <td><%= auction.title %></td>
+        <td> <%= auction.id    %> </td>
+        <td> <%= auction.title %> </td>
         <td>...</td>
-        <td>...</td>
-        <td>
-            <div class="">
-                <%= link_to "Edit", edit_admins_auction_url(auction.id), class: 'btn btn-sm btn-warning' %>
-                <%= link_to 'Delete', admins_auction_path(auction.id),
-                                   data: { confirm: 'Voce tem certeza que deseja apagar?' },
-                                    :method => :delete,
-                                    class: 'btn btn-sm btn-danger' %>
-                <%= link_to "Add produtos", admins_auction_add_products_path(auction), class: 'btn btn-sm btn-info' %>
-            </div>
-        </td>
+        <td></td>
     </tr>
 <% end %>
 

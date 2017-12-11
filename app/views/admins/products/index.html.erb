@@ -11,6 +11,7 @@
         <th>Nome</th>
         <th>Descrição</th>
         <th>Estado</th>
+        <th>Valor</th>
         <th>Ações</th>
     </tr>
 <% @products.each do |product| %>
@@ -20,6 +21,7 @@
         <td><%= product.name %></td>
         <td><%= product.description %></td>
         <td><%= product.state %></td>
+        <td><%= product.price %></td>
         <td>
             <div class="">
                 <%= link_to "Show", admins_product_url(product.id), class: 'btn btn-sm btn-info' %>
