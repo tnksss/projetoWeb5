@@ -9,19 +9,17 @@
         
         <th>Id</th>
         <th>Titulo</th>
-        <th>Data inicio</th>
-        <th>Data fechamento</th>
-        <th>Lances</th>
+        <th>Status</th>
+        <th>Qtd Itens</th>
         <th>Ações</th>
     </tr>
 <% @auctions.each do |auction| %>
     <tr>
         
-        <td><%= auction.id %></td>
-        <td><%= auction.title %></td>
-        <td><%= auction.begin_date%></td>
-        <td><%= auction.end_date%></td>
+        <td> <%= auction.id    %> </td>
+        <td> <%= auction.title %> </td>
         <td>...</td>
+        <td></td>
         <td>
             <div class="">
                 <%= link_to "Show", admins_auction_url(auction.id), class: 'btn btn-sm btn-info' %>
