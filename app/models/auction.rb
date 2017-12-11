@@ -2,7 +2,7 @@ class Auction < ActiveRecord::Base
   mount_uploader :image, ImageUploader
   has_many :auction_products
   has_many :products, :through => :auction_products
-  validate :has_one_product_at_least
+ # validate :has_one_product_at_least
   validates :title, presence: true
 end
 

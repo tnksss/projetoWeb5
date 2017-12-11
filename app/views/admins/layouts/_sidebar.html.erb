@@ -1,19 +1,30 @@
-	<div class="wrapper">
-            <!-- Sidebar Holder -->
- 
-               
-                <ul class="list-group">
-                    <li><a href="#" class="list-group-item">Dashboard</a></li>
-                    <li><a href="#" class="list-group-item">Usuários</a></li>
-                    <li><%= link_to 'Leiloes', admins_auctions_path, class: "list-group-item" %></li>
-                    <li><%= link_to 'Produtos', admins_products_path, class: "list-group-item" %></li>
-                </ul>
 
-                <ul class="list-unstyled CTAs">
+	
+
+    
+
+       
+            
+                <div class="sidebar-header">
+            <h3>  <%= link_to 'DASHBOARD', users_root_path, class: 'sidebar-header' %>               </h3>
                     
+                </div>
 
-                    <li><a href="#" class="btn btn-primary">Logout</a></li>
+                <ul class="list-group">
+                    
+                    
+                    <li class="list-group-item"><%= link_to 'Usuários',
+                        '#'%></li>
+                    <li class="list-group-item"><%= link_to 'Leiloes', admins_auctions_path%></li>
+                    <li class="list-group-item"><%= link_to 'Produtos', admins_products_path%></li>
+
                 </ul>
- 
 
-	</div>
+                <ul class="list-unstyled CTAs">                   
+
+                    <li class="list-group-item"><a href="#" >Logout</a></li>
+                </ul>
+         
+
+
+    

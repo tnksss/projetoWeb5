@@ -1,40 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title><%= full_title(yield(:head_title)) %></title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'admins/application', media: 'all',
-      'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'admins/application', 'data-turbolinks-track': 'reload' %>
+        <title><%= full_title(yield(:head_title)) %></title>
+        <%= csrf_meta_tags %>
+        <%= stylesheet_link_tag    'admins/application', media: 'all',
+            'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'admins/application', 'data-turbolinks-track': 'reload' %>
 
-    <%= render 'layouts/shim' %>
+        <%= render 'layouts/shim' %>
 
-  </head>
-  <body>
+    </head>
+    <body>
 
-    <%= render 'admins/layouts/navbar' %>
+        <%= render 'admins/layouts/navbar' %>
 
-    <div class="container">  
-      <% if admin_signed_in? %>    
-      <div class="row">
-        
-          <div class="col-md-3">
-            <%= render 'admins/layouts/sidebar' %>          
-          </div>
-          <div class="col-md-9 left">
-            <%= render 'shared/flash_messages' %>
-            <%= yield %>      
-          </div>
-      </div>
+        <div class="container">  
+            <% if admin_signed_in? %>    
+            <div class="row">
+             
+                <div class="col-md-3">
+                    <%= render 'admins/layouts/sidebar' %>          
+                </div>
+                <div class="col-md-9">
+                    <%= render 'shared/flash_messages' %>
+                    <%= yield %>      
+                </div>
+            </div>
 
-      <% else %> 
-      <%= yield %>         
-      <% end %> 
-    </div>
+            <% end %> 
+        </div>
 
-  </body>
+    </body>
 </html>

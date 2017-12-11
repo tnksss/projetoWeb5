@@ -5,7 +5,7 @@ class Admins::AuctionsController < Admins::BaseController
 
   def new
     @auction = Auction.new
-  end
+  end 
 
   def show 
     @auction = Auction.find(params[:id])
@@ -45,11 +45,43 @@ class Admins::AuctionsController < Admins::BaseController
 
   def add_products
     @auction = Auction.find(params[:auction_id])
-    @products = Product.all
-  end
+    @products = Product.all.unscoped.order("id")
 
+  end 
+
+ def add_new_product
+  @product = Product.find(params[:product_id])
+  @auction = Auction.find(params[:auction_id]) #
+  @auction.product_ids << params[:product_id]  #
+  params = acp # 
+  par = pp
+  params[:product_ids] =  @auction.product_ids  #
+  par[:flag] = false
+  @product.update_attributes(par)
+  @auction.update_attributes(params) #
+   redirect_back(fallback_location: root_path)
+end 
+def delete_product
+ @product = Product.find(params[:product_id])
+ @auction = Auction.find(params[:auction_id])
+ aux = params[:product_id].to_i
+  @auction.product_ids << params[:product_ids]
+  params = acp
+  @auction.product_ids.delete(aux)
+   par = pp
+  params[:product_ids] =  @auction.product_ids
+   par[:flag] = true
+  @product.update_attributes(par)
+  @auction.update_attributes(params)
+   redirect_back(fallback_location: root_path)
+end 
   private
-
+  def acp  
+    params.permit({product_ids: []} )
+  end 
+  def pp
+    params.permit(:flag)
+  end
   def auction_params
     params.require(:auction).permit(:end_date, :begin_date, :image, :title, {product_ids: []} )
   end

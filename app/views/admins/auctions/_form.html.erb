@@ -5,60 +5,6 @@
         <%= f.input :begin_date %>
         <%= f.input :end_date %>
 
-         <div id="groups">
-
-         <% if !@auction.persisted? %>
-         blz
-        	    <div class='more_group' id="auction_product_ids_0">      
-        			<%=  collection_select(:auction, :product_ids, Product.all, :id , :name, {:multiple => true}, :name => "auction[product_ids][]", :id => "auction_product_ids_0")%>
-        	        <input id="auction_product_ids_0_id" name="pauction_product_ids_0_id" type="hidden" value="6" /> 
-        	    </div>
-        <% else %>
-
-                  <% @auction.products.each do |product| %>
-                   
-                      <%= 
-                            collection_select(:product, product.id, Product.all,
-                              :id, :name,
-                             {:prompt => product.name})
-                      %>
-                    
-                <% end %>
-
-               <%= @auction.products.size %>
-           <div class='more_group' id="auction_product_ids_0">      
-                    <%=  collection_select(:auction, :product_ids, Product.all, :id , :name, {:multiple => true}, :name => "auction[product_ids][]", :id => "auction_product_ids_0")%>
-                    <input id="auction_product_ids_0_id" name="pauction_product_ids_0_id" type="hidden" value="6" /> 
-                </div>
-          <% end %>
-    </div>
-            
-	 	<%= button_tag "Adicionar novo", :type => 'button', id: "addnew" %>
+ 
   <%= f.submit 'Salvar', class: "btn btn-lg btn-info" %>
 <% end %>
-<script type="text/javascript">
-
-    $('#addnew').click(function (event) {
-        var x = <%= @auction.products.size %>
-   
-var newdiv = $(".more_group:last").clone();
-        var newid = Number(newdiv.attr('id').replace(/auction_product_ids_(\d+)/, "$1")) + 1;
-      
-        newdiv.attr('id', "auction_product_ids_" + newid)
-        
-        $.each(newdiv.find(":input"), function() {
-             var thisname = $(this).attr('id');
-             thisname = thisname.replace(/\d+/, newid);
-             
-             $(this).attr('id', thisname);
-             $(this).val('');
-        });
-        
-        $("#groups").append(newdiv);
-});
-</script>
-<style>
-#auction_product_ids_0{
-    
-}
-</style>
