@@ -16,6 +16,6 @@ class ContactsController < ApplicationController
       return  
     end
 
-    render :action => 'mew'
+    render :action => 'index'
   end
 end  
