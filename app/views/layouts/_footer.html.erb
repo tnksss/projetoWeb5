@@ -12,19 +12,16 @@
                     <ul class="menu">
                          <span>Menu</span>    
                          <li>
-                            <a href="#">Home</a>
+                            <%= link_to "Home", root_path %>
+                            
                           </li>
                                
                           <li>
-                             <a href="#">Leilões</a>
+                             <%= link_to "Leilões", auctions_path %>
                           </li>
                                
                           <li>
-                            <a href="#">Produtos</a>
-                          </li>
-                               
-                          <li>
-                             <a href="#">Gallery </a>
+                            <%= link_to "Produtos", products_path %>
                           </li>
                      </ul>
                 </div>
@@ -33,7 +30,7 @@
                   <ul class="adress">
                         <span>Contact</span>       
                         <li>
-                           <i class="fa fa-envelope" aria-hidden="true"></i> <a href="#">Email</a>
+                           <%= link_to "Email", contacts_path%>
                         </li> 
                    </ul>
                </div>
@@ -42,6 +39,6 @@
            </div> 
         </div>
         <div class="container">
-        	<p class="text-center ">Copyright &copy; Online Auction 2017</p>
+        	<p class=" adress text-center ">Copyright &copy; Online Auction 2017</p>
       </div>
     </footer>

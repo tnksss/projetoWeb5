@@ -1,2 +1,36 @@
-<h1>Auctions#index</h1>
-<p>Find me in app/views/auctions/index.html.erb</p>
+<h3 class="text-center">Leilões Disponíveis</h1>
+
+<div class="row">
+<% @auctions.each do |auction| %>
+
+
+   <div class="col-md-4 col-sm-6">
+
+       <div class="card" style="height: 500px;">
+        
+        <!--Card image-->
+        <% if !auction.image.blank? %>
+           <%= image_tag(auction.image.url(:medium), :style => "height: 180px !important") %>
+           
+        <% else %>
+           <img src="/images/fallback/default.png">
+        <% end %>
+        </a>         
+        <hr> 
+        <!--Card content-->
+        <div class="card-body"> 
+            <!--Title-->
+            <h4 class="card-title"><%= auction.title %></h4>
+            <!--Text-->
+
+            <p class="card-text">Status: </p>
+            <p class="card-text">Qtde de Itens: <strong> XXX </strong></p>
+            
+           <%= link_to "Ver produtos", edit_home_path(auction.id), class: 'btn btn-success btn-lg' %>
+           
+        </div>
+      </div>
+    </div>
+<% end %>
+
+</div>
