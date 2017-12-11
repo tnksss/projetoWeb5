@@ -23,24 +23,38 @@ class LaunchesController < ApplicationController
         @product = Product.find(params[:launch][:product_id])
         @user = User.find(params[:launch][:current_user_id])
         @launch = Launch.new(launch_params)
-
-        x = Launch.find(params[:launch][:product_id])
+        @launches = Launch.all 
+       y = 0
         x = Product.maximum("price")
-
-        if(params[:launch][:price].to_i >  x) 
+        @launches.each do |launch|
+            if (launch.product_id == params[:launch][:product_id].to_i)
+                if (launch.price > y)
+                    y = launch.price
+                 end   
+            end     
+        end    
+        
+        if(params[:launch][:price].to_i >  y && params[:launch][:price].to_i > @product.price) 
             if ((@launch.save))
                 @launch.user_ids << params[:launch][:current_user_id] 
                 params = acp 
                 params[:user_ids] =  @launch.user_ids  
-                @launch.update_attributes(params) 
+                if @launch.update_attributes(params) 
+                    flash[:success] = "Boa Sorte"
+                    redirect_back(fallback_location: root_path )
+                else     
+                    flash[:error] = "Erro"
+                    redirect_back(fallback_location: root_path )
+                end    
             else
-                redirect_back(fallback_location: root_path , :erro => "Erro" )
+                flash[:error] = "Erro ao dar o lance, tente novamente"
+                redirect_back(fallback_location: root_path  )
             end
         else
             flash[:error] = "Voce nao pode dar um lance inferior ao lance atual"
             redirect_back(fallback_location: root_path)
         end  
-    end
+    end 
     
     private
     	def acp  

@@ -77,9 +77,9 @@
             <!--Text--> 
             
             <p class="card-text"><%= truncate(product.description, length: 35) %></p>
-            <% y = 0 %>
-            <% @li = 0 %>
-            <% @ui = 0 %>
+            <%= y = 0 %>
+            <%= @li = 0 %>
+            <%= @ui = 0 %>
              <% @launches.each do |launch| %>
               <% if (launch.product_id == product.id) %>
                  
