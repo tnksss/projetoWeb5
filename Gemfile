@@ -9,6 +9,7 @@
  gem 'jquery-rails', '~> 4.3.1'
  gem 'turbolinks',   '~> 5.0.1'
  gem 'bootstrap', '~> 4.0.0.beta'
+ gem 'jbuilder', '~> 2.5'
  gem 'pg', '0.18.4'
  gem 'simple_form'
  gem 'rails-i18n'

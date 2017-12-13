@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'auctions/index'
 
   get 'auctions/show'
@@ -6,8 +7,10 @@ Rails.application.routes.draw do
   devise_for :admins
   devise_for :users
 
-  root to: 'home#index'
-  
+root to:  'chats#show'
+  mount ActionCable.server => '/cable' 
+  root to: 'home#index' 
+   
   resources :home
   resources :launches
   post 'add_launches', to: "launches#add_new_launch"
