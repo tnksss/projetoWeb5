@@ -1,7 +1,14 @@
 <!-- Page Content -->
 <div class="container-fluid">
 
-
+<div align="center" class="container">
+  <h1 class="title">Fique por dentro</h1>
+  
+  <form>
+    Quer receber nossas novidades?  
+    <input type="text" data-behavior="chat_speaker" placeholder=" Informe seu email" >
+  </form>
+</div>
   
  
   <!-- Portfolio Item Row -->
@@ -105,31 +112,31 @@
              
             
               <% if y == 0 %>
-            
+                  
                   <p>Valor Inicial: <strong><%= product.price %></strong></p>
              <% else %>
             
              <p class="card-text">Lance atual: <strong>
               <%= y %>
+             
              <%end%>
              
            </strong></p>
             
             </strong></p>
-        
+           <%= link_to "Show", product_url(product.id), class: 'btn btn-sm btn-info' %>    
             <% if user_signed_in? %>
-            
+              
                 <%= simple_form_for @launch do |f| %>
                   <%= f.input_field :current_user_id, as: :hidden, value: current_user.id%>
                  <%= f.input_field :product_id, as: :hidden, value: product.id%>
                    <p class="card-text"><%= f.input :price  %></p>    
                     <p class="card-text" style="padding-top: 15px;"><%= f.submit 'Efetuar Lance', class: "btn btn-info " %></p>            
                      
-                  <% end %>
+                  <% end %> 
               <% else %>
                   <%= link_to "Dar lance", '#', class: 'btn btn-info' %>
 
-                  
               <% end %>
 
         </div>

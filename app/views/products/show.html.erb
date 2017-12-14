@@ -10,10 +10,43 @@
       
 
       <!-- Portfolio Item Row -->
-      <div class="row">
+      <div class="row"> 
+         <% y = 0 %>
           <div class="col-md-8">
-            <%= image_tag(@product.images.first.url(:medium)  , :style => "max-height: 430px !important") %>
-          </div>
+           
+              <div align="center" class="container">
+  <h1 class="title">Bate Papo</h1>
+  <div id="messages">
+    
+    <%= render @messages %>
+  </div>
+
+ 
+</div> 
+                 <% val = @product.id %>
+                     
+           <% if user_signed_in? %>
+               
+                <%= simple_form_for @launch do |f| %>
+                  <%= f.input_field :current_user_id, as: :hidden, value: current_user.id%>
+                 <%= f.input_field :product_id, as: :hidden, value: val%> 
+                  <input class="form-control numeric float optional" type="number" step="any" name="launch[price]"  >   
+                    <p class="card-text" style="padding-top: 15px;"><%= f.submit 'Efetuar Lance', class: "btn btn-info " %></p>            
+                     
+                  <% end %> 
+              <% else %>
+                  <%= link_to "Dar lance", '#', class: 'btn btn-info' %>
+
+              <% end %>             
+                           
+                            
+                         
+                   
+              
+            
+            
+            
+          </div> 
           <div class="col-md-4">
             <h3 class="my-3">Descrição</h3>
             <p><%= @product.description %></p>
@@ -24,14 +57,20 @@
                 <th>Nome</th>
                 <th>Lance</th>
               </tr>
-              <tr>
-                <td>João da Silva</td>
-                <td>R$ 100,00</td>                
-              </tr>
-              <tr>
-                <td>Maria Santos</td>
-                <td>R$ 95,00</td>
-              </tr>
+              <% soma = 0 %>
+              <% @launches.each do |launch| %>
+                <% if (launch.product_id == @product.id) %>
+                  <tr>
+                    <td><%= launch.price   %></td>
+                        <% @uls.each do |ul| %>
+                          <% if ul.launch_id == launch.id%>
+                               <% @user = User.find(ul.user_id) %>
+                              <td><%=@user.name %></td> 
+                          <% end %>    
+                        <% end %>              
+                  </tr>
+                <% end %>
+              <% end %>  
             </table>          
           </div>
       </div>

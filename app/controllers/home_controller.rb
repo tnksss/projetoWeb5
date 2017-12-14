@@ -6,7 +6,7 @@ class HomeController < ApplicationController
 	end
     def index
      	x = Product.maximum("price")
-
+     	@messages = Message.all
      	@launches = Launch.all
      	@uls = UserLaunch.all
         @launch = Launch.new

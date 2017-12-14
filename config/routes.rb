@@ -6,11 +6,13 @@ Rails.application.routes.draw do
 
   devise_for :admins
   devise_for :users
-
-root to:  'chats#show'
+  root to: 'home#index' do
+    root to:  'chats#show'
+  end
+get 'chats/show'
   mount ActionCable.server => '/cable' 
-  root to: 'home#index' 
-   
+
+    
   resources :home
   resources :launches
   post 'add_launches', to: "launches#add_new_launch"
