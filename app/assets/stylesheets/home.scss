@@ -77,15 +77,16 @@ footer{
 
 // subscription
 .search-text{
-  margin-top:50px;
+  margin-top:-30px;
   background-color: #272d33;
-  padding-top:60px;
+  padding-top:-20px;
   padding-bottom:60px;
+  padding-left: 50px;
 }
   
 .search-text .input-search{
   height:45px;
-  width:40%;
+  width:65%;
   padding-left:20px;
     color:#333;
 } 
@@ -98,7 +99,10 @@ footer{
   height: 45px;
     width: 80px;
 }
-
+h6 {
+  color: #fff;
+  text-align: center;
+}
 .search-text h4{
     color: #FFF;
     font-weight: 700;

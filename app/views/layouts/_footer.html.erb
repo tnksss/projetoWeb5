@@ -3,7 +3,7 @@
      <div class="container">
        <div class="row">
        
-                <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="col-md-3 col-sm-6 col-xs-12">
              
                   <%= image_tag("logo-oa-warning.png")%>
                 </div>
@@ -23,22 +23,35 @@
                           <li>
                             <%= link_to "Produtos", products_path %>
                           </li>
+                          <li>
+                           <%= link_to "Contato", contacts_path%>
+                          </li> 
+                 
                      </ul>
                 </div>
            
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                  <ul class="adress">
-                        <span>Contact</span>       
-                        <li>
-                           <%= link_to "Email", contacts_path%>
-                        </li> 
-                   </ul>
+                <div class="col-md-5 col-sm-6 col-xs-12">
+
+                <div class="search-text bg-warning"> 
+                
+                    <div class="row text-center">
+         
+                      <div class="form">
+                        <h4>Quer receber nossas novidades?!</h4>
+                        <form id="search-form" class="form-search form-horizontal">
+                          <input type="text" class="input-search" placeholder="Endereço de Email  ">
+                          <button type="submit" class="btn-search">ENVIAR</button>
+                        </form>
+                      </div>        
+                
+                  </div>     
+                </div>
                </div>
            
            
            </div> 
         </div>
         <div class="container">
-        	<p class=" adress text-center ">Copyright &copy; Online Auction 2017</p>
+        	<h6>Copyright &copy; Online Auction 2017</h6>
       </div>
     </footer>
