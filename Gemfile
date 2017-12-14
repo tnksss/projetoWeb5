@@ -53,7 +53,7 @@
  end 
 
  group :production do
-
+   gem 'redis', '~>3.2'
  end 
 
  # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
