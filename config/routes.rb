@@ -6,12 +6,11 @@ Rails.application.routes.draw do
 
   devise_for :admins
   devise_for :users
-
   root to: 'home#index' do
     root to:  'chats#show'
   end
-  get 'chats/show'
-    mount ActionCable.server => '/cable' 
+get 'chats/show'
+  mount ActionCable.server => '/cable' 
 
     
   resources :home
