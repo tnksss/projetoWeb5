@@ -13,7 +13,7 @@ authenticate :admin do
 end  
 authenticate :admin do
   resources :messages
-end  
+end   
   mount ActionCable.server => '/cable' 
 
     
