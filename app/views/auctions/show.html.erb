@@ -1,2 +1,65 @@
-<h1>Auctions#show</h1>
-<p>Find me in app/views/auctions/show.html.erb</p>
+<h1>Itens do Leilão</h1>
+<% @products.each do |product| %>
+	    <!-- Page Content -->
+      <!-- Portfolio Item Heading -->
+      <div class="row">
+        <div class="col-md-8">
+          <h2><%= product.name %></h1>    
+        </div>
+       
+        
+      </div>
+      
+
+      <!-- Portfolio Item Row -->
+      <div class="row"> 
+         
+          <div class="col-md-8">
+           
+              <div align="center" class="container">
+  
+  
+
+ 
+</div> 
+                           
+                            
+                         
+                   
+              
+            
+            
+            
+          </div> 
+          <div class="col-md-4">
+            <h3 class="my-3">Descrição</h3>
+            <p><%= product.description %></p>
+            <h5><strong>Preço: </strong><%= product.price %></h5>
+            <h5> <strong>Lances: </strong></h5>
+            <table class="table table-bordered">
+              <tr>
+                <th>Nome</th>
+                <th>Lance</th>
+              </tr>
+            </table>          
+          </div>
+      </div>
+      <!-- /.row -->
+      <!-- Related Projects Row -->
+      <h3 class="my-4">Mais Imagens</h3>
+
+      <div class="row">
+        <% product.images.each do |image| %>
+        <div class="col-md-3 col-sm-6 mb-4">
+            <a href="#">
+             <%= image_tag(image.url(:medium)  , :style => "max-height: 130px !important") %>
+            </a>
+          </div>
+        <% end %>          
+      </div>
+      
+    <!-- /.row -->    
+
+
+
+<% end %>

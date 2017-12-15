@@ -24,7 +24,11 @@ end
     
     resources :contacts, only: [:create, :index]
     resources :products, only: [:index,  :show]
-    resources :auctions, only: [:index,  :show]
+    
+    resources :auctions, only: [:index,  :show] do
+    	resource :products, only: [:index, :show]
+    end
+    
     authenticate :user do
         namespace :users do
             root to: 'dashboard#index'

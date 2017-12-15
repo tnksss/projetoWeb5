@@ -9,7 +9,7 @@ class Admins::AuctionsController < Admins::BaseController
 
   def show 
     @auction = Auction.find(params[:id])
-    @products = Product.all
+    @products = @auction.products
   end
 
   def edit
