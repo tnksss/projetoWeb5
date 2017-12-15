@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
-
+root to: 'home#index'
   get 'auctions/index'
 
   get 'auctions/show'
 
   devise_for :admins
   devise_for :users
+authenticate :admin do
   root to: 'home#index' do
-    root to:  'chats#show'
+   
   end
-get 'chats/show'
+end  
+authenticate :admin do
+  resources :messages
+end  
   mount ActionCable.server => '/cable' 
 
     
@@ -30,7 +34,6 @@ get 'chats/show'
 
   authenticate :admin do
     namespace :admins do
-      
       root to: 'dashboard#index'      
       
       resources :products
