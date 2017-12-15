@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root to: 'home#index' do
     root to:  'chats#show'
   end
-get 'chats/show'
+  get 'chats/show'
   mount ActionCable.server => '/cable' 
 
     
@@ -39,7 +39,6 @@ get 'chats/show'
         get 'add_products',     to: 'auctions#add_products' 
         post 'add_product',     to: "auctions#add_new_product"       
         post 'delete_product',  to: "auctions#delete_product"
-      
       end
     end
   end
