@@ -24,12 +24,12 @@
         <td><%= product.price %></td>
         <td>
             <div class="">
-                <%= link_to "Show", admins_product_url(product.id), class: 'btn btn-sm btn-info' %>
-                <%= link_to "Edit", edit_admins_product_url(product.id), class: 'btn btn-sm btn-warning' %>
+                <%= link_to "Show", admins_product_url(product.id), class: 'btn btn-crud btn-info' %>
+                <%= link_to "Edit", edit_admins_product_url(product.id), class: 'btn btn-crud btn-warning' %>
                 <%= link_to 'Delete', admins_product_path(product.id),
                                    data: { confirm: 'Voce tem certeza que deseja apagar?' },
                                     :method => :delete,
-                                    class: 'btn btn-sm btn-danger' %>
+                                    class: 'btn btn-crud btn-danger' %>
 
             </div>
         </td>
