@@ -11,14 +11,29 @@
         <th>Titulo</th>
         <th>Status</th>
         <th>Qtd Itens</th>
+        <th>Ações</th>
     </tr>
 <% @auctions.each do |auction| %>
     <tr>
         
         <td> <%= auction.id    %> </td>
         <td> <%= auction.title %> </td>
-        <td>...</td>
-        <td></td>
+
+        <td> Aberto </td>
+        <td> <%= auction.products.count %> </td>
+        <td>
+            <div class="">
+                <%= link_to "Show", admins_auction_url(auction.id), class: 'btn btn-crud btn-info' %>
+                <%= link_to "Edit", edit_admins_auction_url(auction.id), class: 'btn btn-crud btn-warning' %>
+                <%= link_to 'Delete', admins_auction_path(auction.id),
+                                   data: { confirm: 'Voce tem certeza que deseja apagar?' },
+                                    :method => :delete,
+                                    class: 'btn btn-crud btn-danger' %>
+
+            </div>
+
+
+        </td>
     </tr>
 <% end %>
 
